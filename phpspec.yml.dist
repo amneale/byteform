@@ -1,0 +1,4 @@
+suites:
+    default:
+        namespace: Amneale\ByteForm
+        psr4_prefix: Amneale\ByteForm

@@ -1,0 +1,30 @@
+{
+    "name": "amneale/byteform",
+    "description": "PHP library for parsing byte amounts",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Adam Neale",
+            "email": "adam@adam-neale.co.uk"
+        }
+    ],
+    "require": {
+        "php": "^7.4"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpspec/phpspec": "^6.1",
+        "roave/security-advisories": "dev-master"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Amneale\\ByteForm\\": "src/"
+        }
+    }
+}
