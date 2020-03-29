@@ -22,6 +22,6 @@ class ByteParser
             return null;
         }
 
-        return (int) $number * (1024 ** $exponent);
+        return (int) ($number * (1024 ** $exponent));
     }
 }
