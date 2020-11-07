@@ -42,4 +42,9 @@ class ByteParserSpec extends ObjectBehavior
         $this->parseBytes('foo')->shouldReturn(null);
         $this->parseBytes('1B2B3B')->shouldReturn(null);
     }
+
+    public function it_parses_mixed_case_strings(): void
+    {
+        $this->parseBytes('1.00kb')->shouldReturn(1024);
+    }
 }

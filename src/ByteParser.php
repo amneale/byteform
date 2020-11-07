@@ -22,6 +22,7 @@ class ByteParser
             return null;
         }
 
+        $suffix = strtoupper($suffix);
         $exponent = array_flip($units)[$suffix] ?? 0;
 
         if (null === $exponent) {
