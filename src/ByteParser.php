@@ -6,17 +6,23 @@ namespace Amneale\ByteForm;
 
 class ByteParser
 {
+    private const MATCHING_PATTERN = '/^([\d.]*)(\D{0,2})$/';
+
     public function parseBytes(string $from): ?int
     {
         $units = ['B', 'KB', 'MB', 'GB', 'TB'];
-        $number = substr($from, 0, -2);
-        $suffix = strtoupper(substr($from, -2));
 
-        if (is_numeric($suffix[0])) { // B, or no suffix
-            return (int) preg_replace('/\D/', '', $from);
+        if (!preg_match(self::MATCHING_PATTERN, $from, $matches)) {
+            return null;
         }
 
-        $exponent = array_flip($units)[$suffix] ?? null;
+        [, $number, $suffix] = $matches;
+
+        if (empty($number)) {
+            return null;
+        }
+
+        $exponent = array_flip($units)[$suffix] ?? 0;
 
         if (null === $exponent) {
             return null;

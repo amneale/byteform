@@ -9,6 +9,8 @@ class ByteParserSpec extends ObjectBehavior
     public function it_parses_a_byte_amount(): void
     {
         $this->parseBytes('1B')->shouldReturn(1);
+        $this->parseBytes('1')->shouldReturn(1);
+        $this->parseBytes('1.5B')->shouldReturn(1);
     }
 
     public function it_parses_a_kilobyte_amount(): void
@@ -33,5 +35,11 @@ class ByteParserSpec extends ObjectBehavior
     {
         $this->parseBytes('1.00TB')->shouldReturn(1099511627776);
         $this->parseBytes('1.5TB')->shouldReturn(1649267441664);
+    }
+
+    public function it_does_not_parse_an_invalid_amount(): void
+    {
+        $this->parseBytes('foo')->shouldReturn(null);
+        $this->parseBytes('1B2B3B')->shouldReturn(null);
     }
 }
