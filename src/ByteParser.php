@@ -6,7 +6,7 @@ namespace Amneale\ByteForm;
 
 class ByteParser
 {
-    private const MATCHING_PATTERN = '/^([\d.]*)(\D{0,2})$/';
+    private const MATCHING_PATTERN = '/^([\d.]*)(?:\s*)(\w{0,2})$/';
 
     public function parseBytes(string $from): ?int
     {

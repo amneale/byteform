@@ -47,4 +47,9 @@ class ByteParserSpec extends ObjectBehavior
     {
         $this->parseBytes('1.00kb')->shouldReturn(1024);
     }
+
+    public function it_parses_strings_containing_whitespace(): void
+    {
+        $this->parseBytes('1.00 kb')->shouldReturn(1024);
+    }
 }
