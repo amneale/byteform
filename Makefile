@@ -36,12 +36,12 @@ install: vendor ## Install dependencies
 # Testing #
 ###########
 
-.PHONY: test code-style ci
+.PHONY: test fmt ci
 
 test: ## Run Run unit tests
 	./vendor/bin/phpspec run -fpretty
 
-code-style: vendor ## Fix code style
+fmt: vendor ## Fix code style
 	./vendor/bin/php-cs-fixer fix
 
 ci: vendor ## Run CI tests and exit if defect found
