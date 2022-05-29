@@ -6,12 +6,6 @@ namespace Amneale\ByteForm;
 
 class ByteFormatter
 {
-    /**
-     * @param int $bytes
-     * @param int $decimals
-     *
-     * @return string
-     */
     public function formatBytes(int $bytes, int $decimals = 2): string
     {
         $units = ['B', 'KB', 'MB', 'GB', 'TB'];
